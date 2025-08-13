@@ -1,0 +1,75 @@
+# Python bytecode and cache
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environments
+.venv/
+venv/
+env/
+ENV/
+.python-version
+
+# Build and packaging
+build/
+dist/
+*.egg-info/
+.eggs/
+
+# Logs and debug
+logs/
+*.log
+nohup.out
+
+# Checkpoints / model weights
+*.pt
+*.pth
+*.ckpt
+*.bin
+*.safetensors
+*.onnx
+
+# Outputs and artifacts
+outputs/
+runs/
+checkpoints/
+artifacts/
+lightning_logs/
+wandb/
+.mlruns/
+
+# Caches
+.cache/
+.cache_dir/
+cache/
+hf_cache/
+huggingface/
+huggingface_cache/
+.pytest_cache/
+
+# Notebooks
+.ipynb_checkpoints/
+
+# Test/coverage
+.coverage
+htmlcov/
+
+# IDE/OS
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.code-workspace
+
+# Data (optional heavy artifacts)
+data/raw/
+data/cache/
+data/**/cache/
+data/**/*.csv
+# Keep JSON task files
+!data/**/*.json
+
+# Temp files
+tmp/
+temp/
+*.tmp

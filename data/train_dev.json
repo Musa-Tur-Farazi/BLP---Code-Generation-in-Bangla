@@ -1,0 +1,92 @@
+[
+  {
+    "id": 4,
+    "instruction": "একটি ফাংশন লিখুন যা প্রদত্ত সংখ্যাটি এমনকি হলে সত্য ফেরত দেয় অন্যথায় মিথ্যা ফেরত দেয়।",
+    "response": "def even_num(x):\r\n  if x%2==0:\r\n     return True\r\n  else:\r\n    return False",
+    "test_list": "\"['assert even_num(13.5)==False', 'assert even_num(0)==True', 'assert even_num(-9)==False']\""
+  },
+  {
+    "id": 5,
+    "instruction": "দ্বিপদী সহগগুলির বর্গক্ষেত্রের যোগফল খুঁজে বের করার জন্য একটি পাইথন ফাংশন লিখুন।",
+    "response": "def factorial(start,end): \r\n    res = 1 \r\n    for i in range(start,end + 1): \r\n        res *= i      \r\n    return res \r\ndef sum_of_square(n): \r\n   return int(factorial(n + 1, 2 * n)  /factorial(1, n)) ",
+    "test_list": "\"['assert sum_of_square(4) == 70', 'assert sum_of_square(5) == 252', 'assert sum_of_square(2) == 6']\""
+  },
+  {
+    "id": 6,
+    "instruction": "রেজেক্স ব্যবহার করে একটি ইউআরএল থেকে বছর, মাস এবং তারিখ বের করার জন্য একটি ফাংশন লিখুন।",
+    "response": "import re\r\ndef extract_date(url):\r\n        return re.findall(r'/(\\d{4})/(\\d{1,2})/(\\d{1,2})/', url)",
+    "test_list": "\"['assert extract_date(\\\"https://www.washingtonpost.com/news/football-insider/wp/2016/09/02/odell-beckhams-fame-rests-on-one-stupid-little-ball-josh-norman-tells-author/\\\") == [(\\\\'2016\\\\', \\\\'09\\\\', \\\\'02\\\\')]', 'assert extract_date(\\\"https://www.indiatoday.in/movies/celebrities/story/wp/2020/11/03/odeof-sushant-singh-rajput-s-death-his-brother-in-law-shares-advice-for-fans-1749646/\\\") == [(\\\\'2020\\\\', \\\\'11\\\\', \\\\'03\\\\')]', 'assert extract_date(\\\"https://economictimes.indiatimes.com/news/economy/2020/12/29/finance/pension-assets-under-pfrda-touch-rs-5-32-lakh-crore/articleshow/79736619.cms\\\") == [(\\\\'2020\\\\', \\\\'12\\\\', \\\\'29\\\\')]']\""
+  },
+  {
+    "id": 12,
+    "instruction": "ln, m lobb সংখ্যা খুঁজে বের করার জন্য একটি ফাংশন লিখুন।",
+    "response": "def binomial_coeff(n, k): \r\n\tC = [[0 for j in range(k + 1)] \r\n\t\t\tfor i in range(n + 1)] \r\n\tfor i in range(0, n + 1): \r\n\t\tfor j in range(0, min(i, k) + 1): \r\n\t\t\tif (j == 0 or j == i): \r\n\t\t\t\tC[i][j] = 1\r\n\t\t\telse: \r\n\t\t\t\tC[i][j] = (C[i - 1][j - 1] \r\n\t\t\t\t\t\t\t+ C[i - 1][j]) \r\n\treturn C[n][k] \r\ndef lobb_num(n, m): \r\n\treturn (((2 * m + 1) *\r\n\t\tbinomial_coeff(2 * n, m + n)) \r\n\t\t\t\t\t/ (m + n + 1))",
+    "test_list": "\"['assert int(lobb_num(5, 3)) == 35', 'assert int(lobb_num(3, 2)) == 5', 'assert int(lobb_num(4, 2)) == 20']\""
+  },
+  {
+    "id": 14,
+    "instruction": "প্রদত্ত স্ট্রিং দুটি বিকল্প অক্ষর দিয়ে তৈরি কিনা তা পরীক্ষা করার জন্য একটি পাইথন ফাংশন লিখুন।",
+    "response": "def is_Two_Alter(s):  \r\n    for i in range (len( s) - 2) : \r\n        if (s[i] != s[i + 2]) : \r\n            return False\r\n    if (s[0] == s[1]): \r\n        return False\r\n    return True",
+    "test_list": "\"['assert is_Two_Alter(\\\"abab\\\") == True', 'assert is_Two_Alter(\\\"aaaa\\\") == False', 'assert is_Two_Alter(\\\"xyz\\\") == False']\""
+  },
+  {
+    "id": 15,
+    "instruction": "ল্যাম্বদা ফাংশন ব্যবহার করে একটি প্রদত্ত অ্যারেতে ধনাত্মক এবং নেতিবাচক সংখ্যাগুলি পুনরায় সাজানোর জন্য একটি ফাংশন লিখুন।",
+    "response": "def rearrange_numbs(array_nums):\r\n  result = sorted(array_nums, key = lambda i: 0 if i == 0 else -1 / i)\r\n  return result ",
+    "test_list": "\"['assert rearrange_numbs([-1, 2, -3, 5, 7, 8, 9, -10])==[2, 5, 7, 8, 9, -10, -3, -1]', 'assert rearrange_numbs([10,15,14,13,-18,12,-20])==[10, 12, 13, 14, 15, -20, -18]', 'assert rearrange_numbs([-20,20,-10,10,-30,30])==[10, 20, 30, -30, -20, -10]']\""
+  },
+  {
+    "id": 18,
+    "instruction": "মুদ্রা পরিবর্তনের জন্য একটি ফাংশন লিখুন।",
+    "response": "def coin_change(S, m, n): \r\n    table = [[0 for x in range(m)] for x in range(n+1)] \r\n    for i in range(m): \r\n        table[0][i] = 1\r\n    for i in range(1, n+1): \r\n        for j in range(m): \r\n            x = table[i - S[j]][j] if i-S[j] >= 0 else 0\r\n            y = table[i][j-1] if j >= 1 else 0 \r\n            table[i][j] = x + y   \r\n    return table[n][m-1] ",
+    "test_list": "\"['assert coin_change([1, 2, 3],3,4)==4', 'assert coin_change([4,5,6,7,8,9],6,9)==2', 'assert coin_change([4,5,6,7,8,9],6,4)==1']\""
+  },
+  {
+    "id": 29,
+    "instruction": "একটি টুপলের পুনরাবৃত্ত আইটেম গণনা করার জন্য একটি ফাংশন লিখুন।",
+    "response": "def count_tuplex(tuplex,value):  \r\n  count = tuplex.count(value)\r\n  return count",
+    "test_list": "\"['assert count_tuplex((2, 4, 5, 6, 2, 3, 4, 4, 7),4)==3', 'assert count_tuplex((2, 4, 5, 6, 2, 3, 4, 4, 7),2)==2', 'assert count_tuplex((2, 4, 7, 7, 7, 3, 4, 4, 7),7)==4']\""
+  },
+  {
+    "id": 32,
+    "instruction": "একটি প্রদত্ত স্ট্রিং তালিকা থেকে ডুপ্লিকেট শব্দ অপসারণের জন্য একটি ফাংশন লিখুন।",
+    "response": "def remove_duplic_list(l):\r\n    temp = []\r\n    for x in l:\r\n        if x not in temp:\r\n            temp.append(x)\r\n    return temp",
+    "test_list": "\"['assert remove_duplic_list([\\\"Python\\\", \\\"Exercises\\\", \\\"Practice\\\", \\\"Solution\\\", \\\"Exercises\\\"])==[\\\\'Python\\\\', \\\\'Exercises\\\\', \\\\'Practice\\\\', \\\\'Solution\\\\']', 'assert remove_duplic_list([\\\"Python\\\", \\\"Exercises\\\", \\\"Practice\\\", \\\"Solution\\\", \\\"Exercises\\\",\\\"Java\\\"])==[\\\\'Python\\\\', \\\\'Exercises\\\\', \\\\'Practice\\\\', \\\\'Solution\\\\', \\\\'Java\\\\']', 'assert remove_duplic_list([\\\"Python\\\", \\\"Exercises\\\", \\\"Practice\\\", \\\"Solution\\\", \\\"Exercises\\\",\\\"C++\\\",\\\"C\\\",\\\"C++\\\"])==[\\\\'Python\\\\', \\\\'Exercises\\\\', \\\\'Practice\\\\', \\\\'Solution\\\\',\\\\'C++\\\\',\\\\'C\\\\']']\""
+  },
+  {
+    "id": 33,
+    "instruction": "একটি ফাংশন লিখুন যা রেজেক্স ব্যবহার করে উট কেস স্ট্রিংকে সাপ কেস স্ট্রিংয়ে রূপান্তর করে।",
+    "response": "import re\r\ndef camel_to_snake(text):\r\n  str1 = re.sub('(.)([A-Z][a-z]+)', r'\\1_\\2', text)\r\n  return re.sub('([a-z0-9])([A-Z])', r'\\1_\\2', str1).lower()",
+    "test_list": "\"[\\\"assert camel_to_snake('GoogleAssistant') == 'google_assistant'\\\", \\\"assert camel_to_snake('ChromeCast') == 'chrome_cast'\\\", \\\"assert camel_to_snake('QuadCore') == 'quad_core'\\\"]\""
+  },
+  {
+    "id": 36,
+    "instruction": "প্রদত্ত ক্রমিক তালিকার উপর ভিত্তি করে প্রদত্ত টুপলগুলিকে পুনরায় সাজানোর জন্য একটি ফাংশন লিখুন।",
+    "response": "def re_arrange_tuples(test_list, ord_list):\r\n  temp = dict(test_list)\r\n  res = [(key, temp[key]) for key in ord_list]\r\n  return (res) ",
+    "test_list": "\"['assert re_arrange_tuples([(4, 3), (1, 9), (2, 10), (3, 2)],  [1, 4, 2, 3]) == [(1, 9), (4, 3), (2, 10), (3, 2)]', 'assert re_arrange_tuples([(5, 4), (2, 10), (3, 11), (4, 3)],  [3, 4, 2, 3]) == [(3, 11), (4, 3), (2, 10), (3, 11)]', 'assert re_arrange_tuples([(6, 3), (3, 8), (5, 7), (2, 4)],  [2, 5, 3, 6]) == [(2, 4), (5, 7), (3, 8), (6, 3)]']\""
+  },
+  {
+    "id": 55,
+    "instruction": "একটি ফাংশন লিখুন, যেটা দিয়ে আমরা জানতে পারি যে, প্রদত্ত সংখ্যাটি প্রচুর পরিমাণে আছে কিনা।",
+    "response": "def is_abundant(n):\r\n    fctrsum = sum([fctr for fctr in range(1, n) if n % fctr == 0])\r\n    return fctrsum > n",
+    "test_list": "\"['assert is_abundant(12)==True', 'assert is_abundant(13)==False', 'assert is_abundant(9)==False']\""
+  },
+  {
+    "id": 68,
+    "instruction": "প্রদত্ত পর্যায়ক্রমিক ফাংশনের সর্বোচ্চ সম্ভাব্য মান খুঁজে পেতে একটি পাইথন ফাংশন লিখুন।",
+    "response": "def floor_Max(A,B,N):\r\n    x = min(B - 1,N)\r\n    return (A*x) // B",
+    "test_list": "\"['assert floor_Max(11,10,9) == 9', 'assert floor_Max(5,7,4) == 2', 'assert floor_Max(2,2,1) == 1']\""
+  },
+  {
+    "id": 73,
+    "instruction": "একটি পাইথন ফাংশন লিখুন যা স্ট্রিংকে বাম দিকে ঘোরায়।",
+    "response": "def left_rotate(s,d):\r\n    tmp = s[d : ] + s[0 : d]\r\n    return tmp  ",
+    "test_list": "\"['assert left_rotate(\\\"python\\\",2) == \\\"thonpy\\\"   ', 'assert left_rotate(\\\"bigdata\\\",3 ) == \\\"databig\\\" ', 'assert left_rotate(\\\"hadoop\\\",1 ) == \\\"adooph\\\" ']\""
+  },
+  {
+    "id": 74,
+    "instruction": "প্রদত্ত ত্রিভুজটির সর্বনিম্ন মোট পথের যোগফল খুঁজে বের করার জন্য একটি ফাংশন লিখুন।",
+    "response": "def min_sum_path(A): \r\n\tmemo = [None] * len(A) \r\n\tn = len(A) - 1\r\n\tfor i in range(len(A[n])): \r\n\t\tmemo[i] = A[n][i] \r\n\tfor i in range(len(A) - 2, -1,-1): \r\n\t\tfor j in range( len(A[i])): \r\n\t\t\tmemo[j] = A[i][j] + min(memo[j], \r\n\t\t\t\t\t\t\t\t\tmemo[j + 1]) \r\n\treturn memo[0]",
+    "test_list": "\"['assert min_sum_path([[ 2 ], [3, 9 ], [1, 6, 7 ]]) == 6', 'assert min_sum_path([[ 2 ], [3, 7 ], [8, 5, 6 ]]) == 10 ', 'assert min_sum_path([[ 3 ], [6, 4 ], [5, 2, 7 ]]) == 9']\""
+  }
+]

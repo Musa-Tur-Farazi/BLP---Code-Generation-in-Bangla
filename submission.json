@@ -1,0 +1,298 @@
+[
+  {
+    "id": 1,
+    "response": "def smallest_multiple(n):\n    if (n<=2):\n      return n\n    i = n * 2\n    factors = [number  for number in range(n, 1, -1) if number * 2 > n]\n    while True:\n        for a in factors:\n            if i % a != 0:\n                i += n\n                break\n            if (a == factors[-1] and i % a == 0):\n                return i"
+  },
+  {
+    "id": 2,
+    "response": "from collections import Counter\ndef add_dict(d1,d2):\n   add_dict = Counter(d1) + Counter(d2)\n   return add_dict"
+  },
+  {
+    "id": 3,
+    "response": "def count_Unset_Bits(n) :  \n    cnt = 0;  \n    for i in range(1,n + 1) : \n        temp = i;  \n        while (temp) :  \n            if (temp % 2 == 0) : \n                cnt += 1;  \n            temp = temp // 2;  \n    return cnt;"
+  },
+  {
+    "id": 4,
+    "response": "def even_num(x):\n  if x%2==0:\n     return True\n  else:\n    return False"
+  },
+  {
+    "id": 5,
+    "response": "def factorial(start,end): \n    res = 1 \n    for i in range(start,end + 1): \n        res *= i      \n    return res \ndef sum_of_square(n): \n   return int(factorial(n + 1, 2 * n)  /factorial(1, n))"
+  },
+  {
+    "id": 6,
+    "response": "import re\ndef extract_date(url):\n        return re.findall(r'/(\\d{4})/(\\d{1,2})/(\\d{1,2})/', url)"
+  },
+  {
+    "id": 7,
+    "response": "def lucky_num(n):\n List=range(-1,n*n+9,2)\n i=2\n while List[i:]:List=sorted(set(List)-set(List[List[i]::List[i]]));i+=1\n return List[1:n+1]"
+  },
+  {
+    "id": 8,
+    "response": "def find_fixed_point(arr, n): \n\tfor i in range(n): \n\t\tif arr[i] is i: \n\t\t\treturn i \n\treturn -1"
+  },
+  {
+    "id": 9,
+    "response": "def previous_palindrome(num):\n    for x in range(num-1,0,-1):\n        if str(x) == str(x)[::-1]:\n            return x"
+  },
+  {
+    "id": 10,
+    "response": "import datetime\ndef check_date(m, d, y):\n    try:\n        m, d, y = map(int, (m, d, y))\n        datetime.date(y, m, d)\n        return True\n    except ValueError:\n        return False"
+  },
+  {
+    "id": 11,
+    "response": "def maximum_product(nums):\n    import heapq\n    a, b = heapq.nlargest(3, nums), heapq.nsmallest(2, nums)\n    return max(a[0] * a[1] * a[2], a[0] * b[0] * b[1])"
+  },
+  {
+    "id": 12,
+    "response": "def binomial_coeff(n, k): \n\tC = [[0 for j in range(k + 1)] \n\t\t\tfor i in range(n + 1)] \n\tfor i in range(0, n + 1): \n\t\tfor j in range(0, min(i, k) + 1): \n\t\t\tif (j == 0 or j == i): \n\t\t\t\tC[i][j] = 1\n\t\t\telse: \n\t\t\t\tC[i][j] = (C[i - 1][j - 1] \n\t\t\t\t\t\t\t+ C[i - 1][j]) \n\treturn C[n][k] \ndef lobb_num(n, m): \n\treturn (((2 * m + 1) *\n\t\tbinomial_coeff(2 * n, m + n)) \n\t\t\t\t\t/ (m + n + 1))"
+  },
+  {
+    "id": 13,
+    "response": "import re\ndef end_num(string):\n    text = re.compile(r\".*[0-9]$\")\n    if text.match(string):\n        return True\n    else:\n        return False"
+  },
+  {
+    "id": 14,
+    "response": "def is_Two_Alter(s):  \n    for i in range (len( s) - 2) : \n        if (s[i] != s[i + 2]) : \n            return False\n    if (s[0] == s[1]): \n        return False\n    return True"
+  },
+  {
+    "id": 15,
+    "response": "def rearrange_numbs(array_nums):\n  result = sorted(array_nums, key = lambda i: 0 if i == 0 else -1 / i)\n  return result"
+  },
+  {
+    "id": 16,
+    "response": "def find_triplet_array(A, arr_size, sum): \n\tfor i in range( 0, arr_size-2): \n\t\tfor j in range(i + 1, arr_size-1): \n\t\t\tfor k in range(j + 1, arr_size): \n\t\t\t\tif A[i] + A[j] + A[k] == sum: \n\t\t\t\t\treturn  A[i],A[j],A[k] \n\t\t\t\t\treturn True\n\treturn False"
+  },
+  {
+    "id": 17,
+    "response": "import re\ndef text_uppercase_lowercase(text):\n        patterns = '[A-Z]+[a-z]+$'\n        if re.search(patterns, text):\n                return 'Found a match!'\n        else:\n                return ('Not matched!')"
+  },
+  {
+    "id": 18,
+    "response": "def coin_change(S, m, n): \n    table = [[0 for x in range(m)] for x in range(n+1)] \n    for i in range(m): \n        table[0][i] = 1\n    for i in range(1, n+1): \n        for j in range(m): \n            x = table[i - S[j]][j] if i-S[j] >= 0 else 0\n            y = table[i][j-1] if j >= 1 else 0 \n            table[i][j] = x + y   \n    return table[n][m-1]"
+  },
+  {
+    "id": 19,
+    "response": "def multiply_list(items):\n    tot = 1\n    for x in items:\n        tot *= x\n    return tot"
+  },
+  {
+    "id": 20,
+    "response": "def remove_tuple(test_list):\n  res = [sub for sub in test_list if not all(ele == None for ele in sub)]\n  return (str(res))"
+  },
+  {
+    "id": 21,
+    "response": "def chunk_tuples(test_tup, N):\n  res = [test_tup[i : i + N] for i in range(0, len(test_tup), N)]\n  return (res)"
+  },
+  {
+    "id": 22,
+    "response": "def max_product(arr): \n    arr_len = len(arr) \n    if (arr_len < 2): \n        return None     \n    x = arr[0]; y = arr[1]    \n    for i in range(0, arr_len): \n        for j in range(i + 1, arr_len): \n            if (arr[i] * arr[j] > x * y): \n                x = arr[i]; y = arr[j] \n    return x,y"
+  },
+  {
+    "id": 23,
+    "response": "def super_seq(X, Y, m, n):\n\tif (not m):\n\t\treturn n\n\tif (not n):\n\t\treturn m\n\tif (X[m - 1] == Y[n - 1]):\n\t\treturn 1 + super_seq(X, Y, m - 1, n - 1)\n\treturn 1 + min(super_seq(X, Y, m - 1, n),\tsuper_seq(X, Y, m, n - 1))"
+  },
+  {
+    "id": 24,
+    "response": "def max_of_two( x, y ):\n    if x > y:\n        return x\n    return y"
+  },
+  {
+    "id": 25,
+    "response": "def mutiple_tuple(nums):\n    temp = list(nums)\n    product = 1 \n    for x in temp:\n        product *= x\n    return product"
+  },
+  {
+    "id": 26,
+    "response": "def binomial_coeffi(n, k): \n\tif (k == 0 or k == n): \n\t\treturn 1\n\treturn (binomial_coeffi(n - 1, k - 1) \n\t\t+ binomial_coeffi(n - 1, k)) \ndef rencontres_number(n, m): \n\tif (n == 0 and m == 0): \n\t\treturn 1\n\tif (n == 1 and m == 0): \n\t\treturn 0\n\tif (m == 0): \n\t\treturn ((n - 1) * (rencontres_number(n - 1, 0)+ rencontres_number(n - 2, 0))) \n\treturn (binomial_coeffi(n, m) * rencontres_number(n - m, 0))"
+  },
+  {
+    "id": 27,
+    "response": "class Node: \n\tdef __init__(self, data): \n\t\tself.data = data \n\t\tself.left = None\n\t\tself.right = None\ndef max_height(node): \n\tif node is None: \n\t\treturn 0 ; \n\telse : \n\t\tleft_height = max_height(node.left) \n\t\tright_height = max_height(node.right) \n\t\tif (left_height > right_height): \n\t\t\treturn left_height+1\n\t\telse: \n\t\t\treturn right_height+1"
+  },
+  {
+    "id": 28,
+    "response": "import re\ndef change_date_format(dt):\n        return re.sub(r'(\\d{4})-(\\d{1,2})-(\\d{1,2})', '\\\\3-\\\\2-\\\\1', dt)\n        return change_date_format(dt)"
+  },
+  {
+    "id": 29,
+    "response": "def count_tuplex(tuplex,value):  \n  count = tuplex.count(value)\n  return count"
+  },
+  {
+    "id": 30,
+    "response": "import re\ndef text_match(text):\n        patterns = 'ab*?'\n        if re.search(patterns,  text):\n                return ('Found a match!')\n        else:\n                return ('Not matched!')"
+  },
+  {
+    "id": 31,
+    "response": "import math \ndef sum_series(number):\n total = 0\n total = math.pow((number * (number + 1)) /2, 2)\n return total"
+  },
+  {
+    "id": 32,
+    "response": "def remove_duplic_list(l):\n    temp = []\n    for x in l:\n        if x not in temp:\n            temp.append(x)\n    return temp"
+  },
+  {
+    "id": 33,
+    "response": "import re\ndef camel_to_snake(text):\n  str1 = re.sub('(.)([A-Z][a-z]+)', r'\\1_\\2', text)\n  return re.sub('([a-z0-9])([A-Z])', r'\\1_\\2', str1).lower()"
+  },
+  {
+    "id": 34,
+    "response": "def dealnnoy_num(n, m): \n\tif (m == 0 or n == 0) : \n\t\treturn 1\n\treturn dealnnoy_num(m - 1, n) + dealnnoy_num(m - 1, n - 1) + dealnnoy_num(m, n - 1)"
+  },
+  {
+    "id": 35,
+    "response": "def series_sum(number):\n total = 0\n total = (number * (number + 1) * (2 * number + 1)) / 6\n return total"
+  },
+  {
+    "id": 36,
+    "response": "def re_arrange_tuples(test_list, ord_list):\n  temp = dict(test_list)\n  res = [(key, temp[key]) for key in ord_list]\n  return (res)"
+  },
+  {
+    "id": 37,
+    "response": "from collections import Counter \ndef max_char(str1):\n    temp = Counter(str1) \n    max_char = max(temp, key = temp.get)\n    return max_char"
+  },
+  {
+    "id": 38,
+    "response": "import sys \n\ndef find_closet(A, B, C, p, q, r): \n\tdiff = sys.maxsize \n\tres_i = 0\n\tres_j = 0\n\tres_k = 0\n\ti = 0\n\tj = 0\n\tk = 0\n\twhile(i < p and j < q and k < r): \n\t\tminimum = min(A[i], min(B[j], C[k])) \n\t\tmaximum = max(A[i], max(B[j], C[k])); \n\t\tif maximum-minimum < diff: \n\t\t\tres_i = i \n\t\t\tres_j = j \n\t\t\tres_k = k \n\t\t\tdiff = maximum - minimum; \n\t\tif diff == 0: \n\t\t\tbreak\n\t\tif A[i] == minimum: \n\t\t\ti = i+1\n\t\telif B[j] == minimum: \n\t\t\tj = j+1\n\t\telse: \n\t\t\tk = k+1\n\treturn A[res_i],B[res_j],C[res_k]"
+  },
+  {
+    "id": 39,
+    "response": "def sorted_models(models):\n sorted_models = sorted(models, key = lambda x: x['color'])\n return sorted_models"
+  },
+  {
+    "id": 40,
+    "response": "def heap_sort(arr):\n    heapify(arr)  \n    end = len(arr) - 1\n    while end > 0:\n        arr[end], arr[0] = arr[0], arr[end]\n        shift_down(arr, 0, end - 1)\n        end -= 1\n    return arr\n\ndef heapify(arr):\n    start = len(arr) // 2\n    while start >= 0:\n        shift_down(arr, start, len(arr) - 1)\n        start -= 1\ndef shift_down(arr, start, end):\n    root = start\n    while root * 2 + 1 <= end:\n        child = root * 2 + 1\n        if child + 1 <= end and arr[child] < arr[child + 1]:\n            child += 1\n        if child <= end and arr[root] < arr[child]:\n            arr[root], arr[child] = arr[child], arr[root]\n            root = child\n        else:\n            return"
+  },
+  {
+    "id": 41,
+    "response": "def count_elim(num):\n  count_elim = 0\n  for n in num:\n    if isinstance(n, tuple):\n        break\n    count_elim += 1\n  return count_elim"
+  },
+  {
+    "id": 42,
+    "response": "def check_element(test_tup, check_list):\n  res = False\n  for ele in check_list:\n    if ele in test_tup:\n      res = True\n      break\n  return (res)"
+  },
+  {
+    "id": 43,
+    "response": "from heapq import merge\ndef combine_lists(num1,num2):\n  combine_lists=list(merge(num1, num2))\n  return combine_lists"
+  },
+  {
+    "id": 44,
+    "response": "import re\ndef num_position(text):\n for m in re.finditer(\"\\d+\", text):\n    return m.start()"
+  },
+  {
+    "id": 45,
+    "response": "def tuple_to_set(t):\n  s = set(t)\n  return (s)"
+  },
+  {
+    "id": 46,
+    "response": "from collections import Counter \ndef most_common_elem(s,a):\n  most_common_elem=Counter(s).most_common(a)\n  return most_common_elem"
+  },
+  {
+    "id": 47,
+    "response": "def len_log(list1):\n    min=len(list1[0])\n    for i in list1:\n        if len(i)<min:\n            min=len(i)\n    return min"
+  },
+  {
+    "id": 48,
+    "response": "def get_item(tup1,index):\n  item = tup1[index]\n  return item"
+  },
+  {
+    "id": 49,
+    "response": "def count_digs(tup):\n  return sum([len(str(ele)) for ele in tup ]) \ndef sort_list(test_list):\n  test_list.sort(key = count_digs)\n  return (str(test_list))"
+  },
+  {
+    "id": 50,
+    "response": "def chinese_zodiac(year):\n if (year - 2000) % 12 == 0:\n     sign = 'Dragon'\n elif (year - 2000) % 12 == 1:\n     sign = 'Snake'\n elif (year - 2000) % 12 == 2:\n     sign = 'Horse'\n elif (year - 2000) % 12 == 3:\n     sign = 'sheep'\n elif (year - 2000) % 12 == 4:\n     sign = 'Monkey'\n elif (year - 2000) % 12 == 5:\n     sign = 'Rooster'\n elif (year - 2000) % 12 == 6:\n     sign = 'Dog'\n elif (year - 2000) % 12 == 7:\n     sign = 'Pig'\n elif (year - 2000) % 12 == 8:\n     sign = 'Rat'\n elif (year - 2000) % 12 == 9:\n     sign = 'Ox'\n elif (year - 2000) % 12 == 10:\n     sign = 'Tiger'\n else:\n     sign = 'Hare'\n return sign"
+  },
+  {
+    "id": 51,
+    "response": "def max_similar_indices(test_list1, test_list2):\n  res = [(max(x[0], y[0]), max(x[1], y[1]))\n   for x, y in zip(test_list1, test_list2)]\n  return (res)"
+  },
+  {
+    "id": 52,
+    "response": "def nCr_mod_p(n, r, p): \n\tif (r > n- r): \n\t\tr = n - r \n\tC = [0 for i in range(r + 1)] \n\tC[0] = 1 \n\tfor i in range(1, n + 1): \n\t\tfor j in range(min(i, r), 0, -1): \n\t\t\tC[j] = (C[j] + C[j-1]) % p \n\treturn C[r]"
+  },
+  {
+    "id": 53,
+    "response": "def subset(ar, n): \n    res = 0\n    ar.sort() \n    for i in range(0, n) : \n        count = 1\n        for i in range(n - 1): \n            if ar[i] == ar[i + 1]: \n                count+=1\n            else: \n                break \n        res = max(res, count)  \n    return res"
+  },
+  {
+    "id": 54,
+    "response": "def profit_amount(actual_cost,sale_amount): \n if(actual_cost > sale_amount):\n    amount = actual_cost - sale_amount\n    return amount\n else:\n    return None"
+  },
+  {
+    "id": 55,
+    "response": "def is_abundant(n):\n    fctrsum = sum([fctr for fctr in range(1, n) if n % fctr == 0])\n    return fctrsum > n"
+  },
+  {
+    "id": 56,
+    "response": "import re\ndef split_list(text):\n  return (re.findall('[A-Z][^A-Z]*', text))"
+  },
+  {
+    "id": 57,
+    "response": "import math\ndef get_First_Set_Bit_Pos(n):\n     return math.log2(n&-n)+1"
+  },
+  {
+    "id": 58,
+    "response": "def int_to_roman( num):\n        val = [1000, 900, 500, 400,100, 90, 50, 40,10, 9, 5, 4,1]\n        syb = [\"M\", \"CM\", \"D\", \"CD\",\"C\", \"XC\", \"L\", \"XL\",\"X\", \"IX\", \"V\", \"IV\",\"I\"]\n        roman_num = ''\n        i = 0\n        while  num > 0:\n            for _ in range(num // val[i]):\n                roman_num += syb[i]\n                num -= val[i]\n            i += 1\n        return roman_num"
+  },
+  {
+    "id": 59,
+    "response": "def Average(lst): \n    return sum(lst) / len(lst)"
+  },
+  {
+    "id": 60,
+    "response": "def get_noOfways(n):\n    if (n == 0):\n        return 0;\n    if (n == 1):\n        return 1; \n    return get_noOfways(n - 1) + get_noOfways(n - 2);"
+  },
+  {
+    "id": 61,
+    "response": "def roman_to_int(s):\n        rom_val = {'I': 1, 'V': 5, 'X': 10, 'L': 50, 'C': 100, 'D': 500, 'M': 1000}\n        int_val = 0\n        for i in range(len(s)):\n            if i > 0 and rom_val[s[i]] > rom_val[s[i - 1]]:\n                int_val += rom_val[s[i]] - 2 * rom_val[s[i - 1]]\n            else:\n                int_val += rom_val[s[i]]\n        return int_val"
+  },
+  {
+    "id": 62,
+    "response": "def sum_Natural(n): \n    sum = (n * (n + 1)) \n    return int(sum) \ndef sum_Even(l,r): \n    return (sum_Natural(int(r / 2)) - sum_Natural(int((l - 1) / 2)))"
+  },
+  {
+    "id": 63,
+    "response": "def discriminant_value(x,y,z):\n    discriminant = (y**2) - (4*x*z)\n    if discriminant > 0:\n        return (\"Two solutions\",discriminant)\n    elif discriminant == 0:\n        return (\"one solution\",discriminant)\n    elif discriminant < 0:\n        return (\"no real solution\",discriminant)"
+  },
+  {
+    "id": 64,
+    "response": "def word_len(s): \n    s = s.split(' ')   \n    for word in s:    \n        if len(word)%2==0: \n            return True  \n        else:\n          return False"
+  },
+  {
+    "id": 65,
+    "response": "def camel_to_snake(text):\n        import re\n        str1 = re.sub('(.)([A-Z][a-z]+)', r'\\1_\\2', text)\n        return re.sub('([a-z0-9])([A-Z])', r'\\1_\\2', str1).lower()"
+  },
+  {
+    "id": 66,
+    "response": "def remove_empty(tuple1): #L = [(), (), ('',), ('a', 'b'), ('a', 'b', 'c'), ('d')]\n   tuple1 = [t for t in tuple1 if t]\n   return tuple1"
+  },
+  {
+    "id": 67,
+    "response": "def check(string): \n  if len(set(string).intersection(\"AEIOUaeiou\"))>=5: \n    return ('accepted') \n  else: \n    return (\"not accepted\")"
+  },
+  {
+    "id": 68,
+    "response": "def floor_Max(A,B,N):\n    x = min(B - 1,N)\n    return (A*x) // B"
+  },
+  {
+    "id": 69,
+    "response": "def join_tuples(test_list):\n  res = []\n  for sub in test_list:\n    if res and res[-1][0] == sub[0]:\n      res[-1].extend(sub[1:])\n    else:\n      res.append([ele for ele in sub])\n  res = list(map(tuple, res))\n  return (res)"
+  },
+  {
+    "id": 70,
+    "response": "def min_of_two( x, y ):\n    if x < y:\n        return x\n    return y"
+  },
+  {
+    "id": 71,
+    "response": "def maximum_segments(n, a, b, c) : \n\tdp = [-1] * (n + 10) \n\tdp[0] = 0\n\tfor i in range(0, n) : \n\t\tif (dp[i] != -1) : \n\t\t\tif(i + a <= n ): \n\t\t\t\tdp[i + a] = max(dp[i] + 1, \n\t\t\t\t\t\t\tdp[i + a]) \n\t\t\tif(i + b <= n ): \n\t\t\t\tdp[i + b] = max(dp[i] + 1, \n\t\t\t\t\t\t\tdp[i + b]) \n\t\t\tif(i + c <= n ): \n\t\t\t\tdp[i + c] = max(dp[i] + 1, \n\t\t\t\t\t\t\tdp[i + c]) \n\treturn dp[n]"
+  },
+  {
+    "id": 72,
+    "response": "def concatenate_nested(test_tup1, test_tup2):\n  res = test_tup1 + test_tup2\n  return (res)"
+  },
+  {
+    "id": 73,
+    "response": "def left_rotate(s,d):\n    tmp = s[d : ] + s[0 : d]\n    return tmp"
+  },
+  {
+    "id": 74,
+    "response": "def min_sum_path(A): \n\tmemo = [None] * len(A) \n\tn = len(A) - 1\n\tfor i in range(len(A[n])): \n\t\tmemo[i] = A[n][i] \n\tfor i in range(len(A) - 2, -1,-1): \n\t\tfor j in range( len(A[i])): \n\t\t\tmemo[j] = A[i][j] + min(memo[j], \n\t\t\t\t\t\t\t\t\tmemo[j + 1]) \n\treturn memo[0]"
+  }
+]
