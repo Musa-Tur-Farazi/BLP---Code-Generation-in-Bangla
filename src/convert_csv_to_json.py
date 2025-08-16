@@ -20,7 +20,7 @@ def try_int(value: str) -> int:
         raise ValueError(f"Invalid integer id: {value!r}")
 
 
-def convert_row(row: Dict[str, str], id_col: str, instruction_col: str, response_col: Optional[str], test_list_col: Optional[str]) -> Dict[str, Any]:
+def convert_row(row: Dict[str, str], id_col: str, instruction_col: str, response_col: Optional[str], test_cases_col: Optional[str]) -> Dict[str, Any]:
     obj: Dict[str, Any] = {}
     obj["id"] = try_int((row.get(id_col) or "").strip())
     obj["instruction"] = (row.get(instruction_col) or "").strip()
@@ -31,23 +31,23 @@ def convert_row(row: Dict[str, str], id_col: str, instruction_col: str, response
     else:
         obj["response"] = None
 
-    if test_list_col:
-        tl = row.get(test_list_col)
-        obj["test_list"] = None if tl is None or tl == "" else str(tl)
+    if test_cases_col:
+        tc = row.get(test_cases_col)
+        obj["test_cases"] = None if tc is None or tc == "" else str(tc)
     else:
-        obj["test_list"] = None
+        obj["test_cases"] = None
 
     return obj
 
 
 def parse_args() -> argparse.Namespace:
-    p = argparse.ArgumentParser(description="Convert BLP CSV (trial) to JSON list compatible with training/generation")
+    p = argparse.ArgumentParser(description="Convert BLP CSV to JSON format")
     p.add_argument("--input_csv", required=True, type=str)
     p.add_argument("--output_json", required=True, type=str)
     p.add_argument("--id_col", type=str, default="id")
     p.add_argument("--instruction_col", type=str, default="instruction")
     p.add_argument("--response_col", type=str, default="response")
-    p.add_argument("--test_list_col", type=str, default="test_list")
+    p.add_argument("--test_cases_col", type=str, default="test_cases")
     p.add_argument("--encoding", type=str, default="utf-8")
     p.add_argument("--delimiter", type=str, default=",")
     return p.parse_args()
@@ -71,7 +71,7 @@ def main() -> None:
                 id_col=args.id_col,
                 instruction_col=args.instruction_col,
                 response_col=args.response_col if args.response_col in headers else None,
-                test_list_col=args.test_list_col if args.test_list_col in headers else None,
+                test_cases_col=args.test_cases_col if args.test_cases_col in headers else None,
             )
             rows.append(obj)
 
